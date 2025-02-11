@@ -1,0 +1,14 @@
+# Base image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy project files
+COPY Rec /app/Rec
+
+# Install dependencies (if any)
+RUN pip install -r /app/Rec/requirements.txt
+
+# Command to run the inference
+CMD ["python", "/app/Rec/infer.py"]
